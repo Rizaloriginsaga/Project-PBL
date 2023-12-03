@@ -31,5 +31,5 @@ Route::group(['middleware' => ['auth']], function () {
     Route::group(['middleware' => ['login:mahasiswa']], function () {
         Route::get('/edit-profile/{username}', [AuthController::class, 'edit_profile_view'])->name('edit_profile');
         Route::post('/edit-profile/{username}', [AuthController::class, 'edit_profile'])->name('edit_profile');
-    });
+    }); //test
 });
