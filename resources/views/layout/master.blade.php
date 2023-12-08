@@ -152,6 +152,32 @@
 <script src="{{asset ('helpers/validation.js')}}"></script>
 <!-- File Path Upload -->
 <script src="{{asset ('helpers/filePathUpload.js')}}"></script>
+<script>
+  $(function () {
+    $('#reservationdate').datetimepicker({
+        format: 'L'
+    });
+    $("#example1").DataTable({
+      "responsive": false, "lengthChange": false, "autoWidth": true, "scrollX": true,
+      "buttons": [
+        {
+          text: 'Tambah Data &ensp; <i class="fa-solid fa-plus"></i>',
+          action: function(e, dt, node, config) {
+              window.location.href = '{{route('create_prestasi')}}';
+          }
+        }
+      ]
+    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+    $('#example1_wrapper .dataTables_filter input').css({
+      'width': 'auto', 
+      'height': 'auto' 
+    });
+
+    $("#example2").DataTable({
+      "responsive": false, "lengthChange": false, "autoWidth": true,"scrollX": true,
+    })
+  })
+</script>
 </body>
 <<<<<<< HEAD
 </html>
