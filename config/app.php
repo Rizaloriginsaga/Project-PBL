@@ -3,8 +3,9 @@
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\ServiceProvider;
 
-return [
 
+return [
+    
     /*
     |--------------------------------------------------------------------------
     | Application Name
@@ -15,7 +16,7 @@ return [
     | any other location as required by the application or its packages.
     |
     */
-
+    
     'name' => env('APP_NAME', 'Laravel'),
 
     /*
@@ -168,6 +169,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        Maatwebsite\Excel\ExcelServiceProvider::class,
     ])->toArray(),
 
     /*
@@ -182,7 +184,7 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
-        // 'Example' => App\Facades\Example::class,
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
     ])->toArray(),
 
 ];
