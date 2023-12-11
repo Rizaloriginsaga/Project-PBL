@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Library\UploadImage;
 use App\Http\Requests\EditProfileRequest;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegisterRequest;
@@ -30,9 +31,9 @@ class AuthController extends Controller
         if (Auth::attempt($credential)) {
             $user =  Auth::user();
             if ($user->role == 'admin') {
-                return redirect()->intended('admin');
+                return redirect()->intended('/');
             } else if ($user->role == 'mahasiswa') {
-                return redirect()->intended('user');
+                return redirect()->intended('/');
             }
             return redirect()->intended('/');
         }
@@ -63,15 +64,21 @@ class AuthController extends Controller
         return redirect('login');
     }
 
-    public function edit_profile_view($username)
+    public function edit_profile_view()
     {
-        $user = User::where('username', '=', $username)->firstOrFail();
-        return view('auth.edit_profile', compact('user'));
+        $id = Auth::user()->id;
+        $data = User::where('id', '=', $id)->firstOrFail();
+        return view('auth.edit_profile', compact('data'));
     }
 
     public function edit_profile(EditProfileRequest $request)
     {
+        $user = User::where('id', '=', Auth::user()->id)->firstOrFail();
+        if (!empty($request->file('foto_profile'))) {
+            $test = UploadImage::image($request->file('foto_profile'), 'assets/foto-profile/');
+        }
         $data = $request->all();
+
         dd($data);
     }
 }

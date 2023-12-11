@@ -18,3 +18,8 @@ yarn-error.log
 /.idea
 /.vscode
 /public/template
+public/assets/plugins
+public/assets/dist
+public/template/plugins
+public/template/dist
+public/images

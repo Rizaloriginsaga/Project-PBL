@@ -11,8 +11,8 @@ class EditProfileRequest extends FormRequest
         return [
             'username' => 'required',
             'nama_lengkap' => 'required',
-            'tanggal_lahir' => 'required|date',
-            'password' => 'required',
+            'tanggal_lahir' => 'date',
+            'foto_profile' => 'image|mimes:jpeg,png,jpg,gif|max:2048'
         ];
     }
 }

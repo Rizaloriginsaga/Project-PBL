@@ -1,7 +1,7 @@
 @extends('layout.master')
 
 @section('content')
-<div class="content-wrapper p-3">
+<div class="  p-3">
     <div class="content-header">
       <div class="container-fluid">
         <h1>Edit Data Prestasi</h1>
