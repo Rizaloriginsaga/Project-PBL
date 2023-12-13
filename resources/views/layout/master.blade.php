@@ -113,6 +113,22 @@
                 'width': 'auto',
                 'height': 'auto'
             });
+            $("#tableLomba").DataTable({
+                "responsive": false,
+                "lengthChange": false,
+                "autoWidth": true,
+                "scrollX": true,
+                "buttons": [{
+                    text: 'Tambah Data &ensp; <i class="fa-solid fa-plus"></i>',
+                    action: function(e, dt, node, config) {
+                        window.location.href = '{{ route('lomba.create') }}';
+                    }
+                }]
+            }).buttons().container().appendTo('#tableLomba_wrapper .col-md-6:eq(0)');
+            $('#tableLomba_wrapper .dataTables_filter input').css({
+                'width': 'auto',
+                'height': 'auto'
+            });
             $("#example2").DataTable({
                 "responsive": false,
                 "lengthChange": false,
@@ -120,6 +136,27 @@
                 "scrollX": true,
             })
         })
+    </script>
+    <!-- autofill -->
+    <script>
+        $(document).ready(function () {
+            $('#nim').on('blur', function () {
+                var nim = $(this).val();
+                if (nim !== '') {
+                    $.ajax({
+                        url: '{{ route('autofill') }}',
+                        method: 'GET',
+                        data: { nim: nim },
+                        success: function (data) {
+                            if (data) {
+                                $('#namaMahasiswa').val(data.nama);
+                                $('#tahunAngkatan').val(data.tahunAngkatan);
+                            }
+                        }
+                    });
+                }
+            });
+        });
     </script>
 </body>
 

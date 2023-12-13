@@ -32,7 +32,7 @@ var rows = $('#example1').find('tr');
 rows.slice(1).each(function() {
     var row = $(this);
     var tanggalPrestasi = row.find('td:nth-child(8)').text();
-    if (selectedDate === 'Semua' || tanggalPrestasi === selectedDate) {
+    if (tanggalPrestasi === selectedDate) {
         row.show();
     } else {
         row.hide();

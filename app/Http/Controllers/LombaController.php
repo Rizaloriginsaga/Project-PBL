@@ -4,19 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Lomba;
-use App\Exports\ExportExcelProduk;
+use App\Exports\ExportExcelLomba;
 use Maatwebsite\Excel\Facades\Excel;
 
 class LombaController extends Controller
 {
-    //
     public function index(){
         $data = Lomba::all();
-        return view('lomba.index', ['dataLomba' => $data]);
+        return view('admin.idx_lomba', ['dataLomba' => $data]);
     }
 
     public function create(){
-        return view('lomba.create');
+        return view('admin.create_lomba');
     }
 
     public function store(Request $request){
@@ -28,12 +27,11 @@ class LombaController extends Controller
         ];
 
         $this->validate($request, [
-            'id' => 'required|unique:lomba'
+            'id_lomba' => 'required|unique:lomba'
         ], $message);
         $data = new Lomba();
-        $data->id = $request->id;
+        $data->id_lomba = $request->id_lomba;
         $data->nama_lomba = $request->nama_lomba;
-        $data->tingkat_lomba = $request->tingkat_lomba;
         $data->tingkat_lomba = $request->tingkat_lomba;
         $data->tanggal_posting = $request->tanggal_posting;
         $data->tanggal_berakhir = $request->tanggal_berakhir;
@@ -50,7 +48,7 @@ class LombaController extends Controller
 
     public function edit($id){
         $data = Lomba::find($id);
-        return view('lomba.edit', compact('data'));
+        return view('admin.edit_lomba', compact('data'));
     }
 
     public function update(Request $request, $id){
@@ -87,11 +85,15 @@ class LombaController extends Controller
             return redirect('/tampil-lomba')->with('error', 'Data tidak ditemukan!');
         }
     
-        return view('lomba.read', compact('data'));
+        return view('admin.view_lomba', compact('data'));
     }
     
-    public function exportExcelProduk(){
-        return Excel::download(new exportExcelProduk, 'HasilProduk.xlsx');
+    public function exportExcelLomba(){
+        return Excel::download(new exportExcelLomba, 'HasilLomba.xlsx');
     }
+
+
+
+
 
 }

@@ -13,7 +13,7 @@
                         <div class="card-body">
                             <div class="form-group">
                                 <input type="text" name="idPrestasi" class="form-control" id="idPrestasi"
-                                    placeholder="ID Prestasi">
+                                    placeholder="No Sertifikat">
                             </div>
                             <div class="form-group">
                                 <input type="text" name="nim" class="form-control" id="nim" placeholder="NIM">
@@ -27,8 +27,13 @@
                                     placeholder="Nama Prestasi">
                             </div>
                             <div class="form-group">
-                                <input type="text" name="tingkatPrestasi" class="form-control" id="tingkatPrestasi"
-                                    placeholder="Tingkat Prestasi">
+                                <select class="form-control text-muted" style="width: 100%;" id="tingkatPrestasi" name="tingkatPrestasi" type="text">
+                                    <option>Kota</option>
+                                    <option>Wilker</option>
+                                    <option>Provinsi</option>
+                                    <option>Nasional</option>
+                                    <option>Internasional</option>
+                                </select>
                             </div>
                             <div class="row mr-0 ml-0">
                                 <div class="form-group col-sm-5">
@@ -48,8 +53,10 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <input type="text" name="jenisSertifikat" class="form-control" id="jenisSertifikat"
-                                    placeholder="Jenis Sertifikat">
+                                <select class="form-control text-muted" style="width: 100%;" id="jenisSertifikat" name="jenisSertifikat" type="text">
+                                    <option>Akademik</option>
+                                    <option>Non Akademik</option>
+                                </select>
                             </div>
                             <div class="form-group">
                                 <div class="custom-file">

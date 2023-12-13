@@ -39,7 +39,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="./index2.html" class="nav-link">
+                            <a href="{{ route('lomba')}}" class="nav-link">
                                 <img src="{{ asset('/assets/img/icon/data_lomba.svg') }}" class="nav-icon" />
                                 <p class="my-auto ml-2">Data Lomba</p>
                             </a>

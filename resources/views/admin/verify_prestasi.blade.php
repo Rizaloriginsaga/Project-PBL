@@ -23,7 +23,7 @@
                             <th style="width:1%" class="btn-danger disabled">Tahun Angkatan</th>
                             <th style="width:1%" class="btn-danger disabled">Jenis Sertifikat</th>
                             <th style="width:1%" class="btn-danger disabled">Status Verifikasi</th>
-                            <th style="width:10%" class="btn-danger disabled">Aksi</th>
+                            <th style="width:5em" class="btn-danger disabled">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -47,13 +47,13 @@
                                     @endif
                                 </td>
                                 <td>
-                                    <div class="row">
-                                        <form action="{{ url('/verifikasi', $data->id) }}" method="post" class="col-sm-6">
+                                    <div>
+                                        <form action="{{ url('/verifikasi', $data->id) }}" method="post" >
                                             @csrf
                                             <button type="submit" class="btn btn-warning">Verifikasi</button>
                                         </form>
                                         <form action="{{ url('/unverifikasi', $data->id) }}" method="post"
-                                            class="col-sm-6">@csrf
+                                            >@csrf
                                             <button type="submit" class="btn btn-danger">Unverifikasi</button>
                                         </form>
                                     </div>

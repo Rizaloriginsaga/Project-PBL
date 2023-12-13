@@ -28,7 +28,7 @@
                         </div>
                     </div>
                     <div class="form-group col-sm-2 offset-sm-4 mt-4">
-                        <a href="{{ route('excel') }}" class="btn btn-block btn-danger"><i
+                        <a href="{{ route('excel_prestasi') }}" class="btn btn-block btn-danger"><i
                                 class="fa-solid fa-file-excel"></i>&ensp;Export Excel</a>
                     </div>
                 </div>
@@ -36,18 +36,18 @@
                 <table id="example1" class="table table-bordered">
                     <thead>
                         <tr>
-                            <th style="width:1%" class="btn-danger disabled">No.</th>
-                            <th style="width:1%" class="btn-danger disabled">Id Prestasi</th>
-                            <th style="width:1%" class="btn-danger disabled">NIM</th>
-                            <th style="width:1%" class="btn-danger disabled">Nama Mhs</th>
-                            <th style="width:1%" class="btn-danger disabled">Nama Prestasi</th>
-                            <th style="width:1%" class="btn-danger disabled">Dokumen</th>
-                            <th style="width:1%" class="btn-danger disabled">Tingkat Prestasi</th>
-                            <th style="width:1%" class="btn-danger disabled">Tanggal Pengeluaran</th>
-                            <th style="width:1%" class="btn-danger disabled">Tahun Angkatan</th>
-                            <th style="width:1%" class="btn-danger disabled">Jenis Sertifikat</th>
-                            <th style="width:1%" class="btn-danger disabled">Status Verifikasi</th>
-                            <th style="width:5em" class="btn-danger disabled">Aksi</th>
+                            <th style="width:1%" class="bg-danger text-white">No.</th>
+                            <th style="width:5%" class="bg-danger text-white">Id Prestasi</th>
+                            <th style="width:5%" class="bg-danger text-white">NIM</th>
+                            <th style="width:5%" class="bg-danger text-white">Nama Mhs</th>
+                            <th style="width:5%" class="bg-danger text-white">Nama Prestasi</th>
+                            <th style="width:5%" class="bg-danger text-white">Dokumen</th>
+                            <th style="width:5%" class="bg-danger text-white">Tingkat Prestasi</th>
+                            <th style="width:5%" class="bg-danger text-white">Tanggal Pengeluaran</th>
+                            <th style="width:5%" class="bg-danger text-white">Tahun Angkatan</th>
+                            <th style="width:5%" class="bg-danger text-white">Jenis Sertifikat</th>
+                            <th style="width:5%" class="bg-danger text-white">Status Verifikasi</th>
+                            <th style="width:10%" class="bg-danger text-white">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>

@@ -42,8 +42,8 @@
                         </div>
                         <div class="form-group">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input"name="dokumen" id="dokumen" value="">
-                                <label class="custom-file-label text-muted" for="dokumen" data-browse="Upload"></label>
+                                <input type="file" class="custom-file-input"name="dokumen" id="dokumen" value="{{$data->dokumen}}">
+                                <label class="custom-file-label text-muted" for="dokumen" data-browse="Upload">{{$data->dokumen}}</label>
                             </div>
                         </div>
                     </div>

@@ -108,5 +108,18 @@ class PrestasiController extends Controller
         $exists = Mahasiswa::where('nim', $nim)->exists();
         return response()->json(['exists' => $exists]);
     }
+    public function autofillData(Request $request)
+    {
+        $nim = $request->input('nim');
 
+        $data = Mahasiswa::where('nim', $nim)->first();
+
+        if ($data) {
+            return response()->json([
+                'nama' => $data->nama,
+                'tahunAngkatan' => $data->tahun_angkatan,
+            ]);
+        }
+        return response()->json(null);
+    }
 }
