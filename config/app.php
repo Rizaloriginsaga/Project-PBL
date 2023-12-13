@@ -3,8 +3,9 @@
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\ServiceProvider;
 
-return [
 
+return [
+    
     /*
     |--------------------------------------------------------------------------
     | Application Name
@@ -15,7 +16,7 @@ return [
     | any other location as required by the application or its packages.
     |
     */
-
+    
     'name' => env('APP_NAME', 'Laravel'),
 
     /*

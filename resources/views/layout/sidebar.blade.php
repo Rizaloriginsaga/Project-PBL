@@ -1,83 +1,79 @@
-  <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+<!-- Main Sidebar Container -->
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
-      <img src="{{ asset('assets/dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
+        <img src="{{ asset('assets/img/logo.png') }}" class="brand-image-2xl">
+        <span class="text-white ml-2 my-auto font-weight-bold">PRESMIPOLI</span>
     </a>
 
     <!-- Sidebar -->
     <div class="sidebar">
-      <!-- Sidebar user panel (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-          <img src="{{ asset('assets/dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
-        </div>
-        <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
-        </div>
-      </div>
-
-      <!-- SidebarSearch Form -->
-      <div class="form-inline">
-        <div class="input-group" data-widget="sidebar-search">
-          <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-          <div class="input-group-append">
-            <button class="btn btn-sidebar">
-              <i class="fas fa-search fa-fw"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Sidebar Menu -->
-      <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                data-accordion="false">
+                <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item">
-            <a href="pages/gallery.html" class="nav-link">
-              <i class="nav-icon far fa-image"></i>
-              <p>
-                Dashboard
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="pages/kanban.html" class="nav-link">
-              <i class="nav-icon fas fa-columns"></i>
-              <p>
-                Kelola Mahasiswa Berprestasi
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="pages/gallery.html" class="nav-link">
-              <i class="nav-icon far fa-image"></i>
-              <p>
-                Kelola Lomba
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="pages/kanban.html" class="nav-link">
-              <i class="nav-icon fas fa-columns"></i>
-              <p>
-                Pengaturan
-              </p>
-            </a>
-          </li>
-         
-        </ul>
-      </nav>
-      <!-- /.sidebar-menu -->
+                <li class="nav-item">
+                    <a href="{{ route('home') }}" class="nav-link {{ Request::segment(1) == '' ? 'active' : '' }}">
+                        <img src="{{ asset('/assets/img/icon/dashboard.svg') }}" class="nav-icon" />
+                        <p class="my-auto ml-2">
+                            Dashboard
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <img src="{{ asset('/assets/img/icon/data_master.svg') }}"
+                            class="nav-icon fas fa-tachometer-alt" />
+                        <p class="my-auto ml-2">
+                            Data Master
+                            <i class="right fas fa-angle-right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview bg-white rounded">
+                        <li class="nav-item">
+                            <a href="{{ route('prestasi') }}" class="nav-link">
+                                <img src="{{ asset('/assets/img/icon/data_prestasi.svg') }}" class="nav-icon" />
+                                <p class="my-auto ml-2">Data Prestasi</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('lomba')}}" class="nav-link">
+                                <img src="{{ asset('/assets/img/icon/data_lomba.svg') }}" class="nav-icon" />
+                                <p class="my-auto ml-2">Data Lomba</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link {{ Request::segment(1) == 'edit-profile' ? 'active' : '' }}">
+                        <img src="{{ asset('/assets/img/icon/pengaturan.svg') }}"
+                            class="nav-icon fas fa-tachometer-alt" />
+                        <p class="my-auto ml-2">
+                            Pengaturan
+                            <i class="right fas fa-angle-right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview bg-white rounded">
+                        <li class="nav-item">
+                            <a href="{{ route('edit_profile') }}" class="nav-link active">
+                                <img src="{{ asset('/assets/img/icon/profil.svg') }}" class="nav-icon" />
+                                <p class="my-auto ml-2">Profil</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->
-  </aside>
+</aside>
 
 
-
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
+<!-- Control Sidebar -->
+<aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->
-  </aside>
+</aside>
