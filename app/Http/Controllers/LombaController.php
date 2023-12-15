@@ -13,7 +13,6 @@ class LombaController extends Controller
     public function index(){
         $tingkatLomba = request('tingkat_lomba', 'Semua');
         $tanggal = request('tanggal');
-    
         $query = Lomba::query();
     
         if ($tingkatLomba !== 'Semua') {
@@ -26,15 +25,16 @@ class LombaController extends Controller
     
         $dataLomba = $query->get();
     
-        return view('lomba.index', [
+        return view('admin.idx_lomba', [
             'dataLomba' => $dataLomba,
             'tingkatLomba' => $tingkatLomba,
             'tanggal' => $tanggal,
         ]);
+        
     }
 
 public function create(){
-        return view('lomba.create');
+        return view('admin.create_lomba');
     }
 
     public function store(Request $request){
@@ -68,7 +68,7 @@ public function create(){
 
     public function edit($id){
         $data = Lomba::find($id);
-        return view('lomba.edit', compact('data'));
+        return view('admin.edit_lomba', compact('data'));
     }
 
     public function update(Request $request, $id){
@@ -105,15 +105,21 @@ public function create(){
             return redirect('/tampil-lomba')->with('error', 'Data tidak ditemukan!');
         }
     
-        return view('lomba.read', compact('data'));
+        return view('admin.view_lomba', compact('data'));
     }
     
-    public function exportExcelProduk(){
-        return Excel::download(new exportExcelProduk, 'HasilProduk.xlsx');
+    public function exportExcelLomba(){
+        return Excel::download(new exportExcelLomba, 'HasilLomba.xlsx');
+    }
+
+    public function widgetJumlahLomba()
+    {
+        $jumlahLomba = Lomba::count(); 
+        dd($jumlahLomba);
+        return view('home.index', compact('jumlahLomba'));
     }
 
 
-
-    }
+}
 
 

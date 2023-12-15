@@ -47,7 +47,7 @@ Route::group(['middleware' => ['auth']], function () {
 
 
         // lomba
-        Route::get('tampil-lomba', [LombaController::class, 'index'])->name('lomba');
+        Route::get('tampil-lomba', [LombaController::class, 'index'])->name('lomba.index');
         Route::get('tambah-lomba', [LombaController::class, 'create'])->name('lomba.create');
         Route::post('tampil-lomba', [LombaController::class, 'store'])->name('lomba.store');
         Route::get('/lomba/edit/{id}', [LombaController::class, 'edit'])->name('lomba.edit');
@@ -59,12 +59,3 @@ Route::group(['middleware' => ['auth']], function () {
     Route::group(['middleware' => ['login:mahasiswa']], function () {
     }); 
 });
-
-Route::get('tampil-lomba', [LombaController::class, 'index'])->name('lomba.index');
-Route::get('tambah-lomba', [LombaController::class, 'create'])->name('lomba.create');
-Route::post('tampil-lomba', [LombaController::class, 'store'])->name('lomba.store');
-Route::get('/lomba/edit/{id}', [LombaController::class, 'edit'])->name('lomba.edit');
-Route::post('/lomba/edit/{id}', [LombaController::class, 'update'])->name('lomba.update');
-Route::post('/lomba/delete/{id}', [LombaController::class, 'destroy'])->name('lomba.delete');
-Route::get('/lomba/read/{id}', [LombaController::class, 'read'])->name('lomba.read');
-Route::get('exportExcelProduk', [LombaController::class, 'exportExcelProduk'])->name('excel');

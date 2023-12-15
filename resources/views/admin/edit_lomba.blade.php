@@ -34,9 +34,14 @@
                 value="{{$data->nama_lomba}}">
 </div>
 <div class="form-group">
-                <label for="kode">Tingkat Lomba <span class="text-danger">*</span></label>
-                <input class="form-control" type="text" name="tingkat_lomba" id="tingkat_lomba"
-                value="{{$data->tingkat_lomba}}">
+    <label for="tingkat_lomba">Tingkat Lomba <span class="text-danger">*</span></label>
+    <select class="form-control" name="tingkat_lomba" id="tingkat_lomba">
+        <option value="{{$data->tingkat_lomba}}" selected>{{$data->tingkat_lomba}}</option>
+        <option value="Kabupaten">Kabupaten</option>
+        <option value="Provinsi">Provinsi</option>
+        <option value="Nasional">Nasional</option>
+        <option value="Internasional">Internasional</option>
+    </select>
 </div>
 <div class="form-group row">
 <div class="col-md-6">
@@ -50,10 +55,9 @@
                 value="{{$data->tanggal_berakhir}}">
 </div>  
 <div class="form-group">
-                <label for="kode">Deskripsi <span class="text-danger">*</span></label>
-                <input class="form-control" type="text" name="deskripsi" id="deskripsi"
-                value="{{$data->deskripsi}}">
-</div>
+                        <label for="deskripsi">Deskripsi <span class="text-danger">*</span></label>
+                        <textarea class="form-control" name="deskripsi" id="deskripsi" rows="5">{{$data->deskripsi}}</textarea>
+                    </div>
 <div class="form-group">
                 <label for="kode">Foto <span class="text-danger">*</span></label>
                 <input class="form-control" type="file" name="foto" id="foto" 

@@ -16,14 +16,13 @@ return new class extends Migration
             $table->string('id_prestasi');
             $table->string('nim');
             $table->string('nama_prestasi');
-            $table->string('dokumen');
+            $table->binary('dokumen');
             $table->string('tingkat_prestasi');
             $table->string('tahun_pengeluaran');
             $table->string('tahun_angkatan');
             $table->string('jenis_sertifikat');
             $table->boolean('status_verifikasi')->default(false);
             $table->timestamps();
-            $table->foreign('nim')->references('nim')->on('mahasiswa')->onDelete('cascade');
         });
     }
 

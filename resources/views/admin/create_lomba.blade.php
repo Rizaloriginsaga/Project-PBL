@@ -1,5 +1,5 @@
 @extends('layout.master')
-
+@section('title', 'Aplikasi Laravel')
 @section('content')
 <br>
 <h4 style="margin-left: 10px;">Tambah Data Lomba</h4>
@@ -24,17 +24,22 @@
             <form action="{{route('lomba.store')}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
-                    <label for="id_lomba">ID Lomba <span class="text-danger">*</span></label>
-                    <input class="form-control" type="text" name="id_lomba" id="id_lomba">
+                    <label for="id">ID Lomba <span class="text-danger">*</span></label>
+                    <input class="form-control" type="text" name="id" id="id">
                 </div>
                 <div class="form-group">
                     <label for="nama_lomba">Nama Lomba <span class="text-danger">*</span></label>
                     <input class="form-control" type="text" name="nama_lomba" id="nama_lomba">
                 </div>
                 <div class="form-group">
-                    <label for="tingkat_lomba">Tingkat Lomba <span class="text-danger">*</span></label>
-                    <input class="form-control" type="text" name="tingkat_lomba" id="tingkat_lomba">
-                </div>
+    <label for="tingkat_lomba">Tingkat Lomba <span class="text-danger">*</span></label>
+    <select class="form-control" name="tingkat_lomba" id="tingkat_lomba">
+        <option value="Kabupaten">Kabupaten</option>
+        <option value="Provinsi">Provinsi</option>
+        <option value="Nasional">Nasional</option>
+        <option value="Internasional">Internasional</option>
+    </select>
+</div>
                 <div class="form-group row">
                     <div class="col-md-6">
                         <label for="tanggal_posting">Tanggal Posting <span class="text-danger">*</span></label>
@@ -46,13 +51,26 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="deskripsi">Deskripsi <span class="text-danger">*</span></label>
-                    <input class="form-control" type="text" name="deskripsi" id="deskripsi">
-                </div>
+    <label for="deskripsi">Deskripsi <span class="text-danger">*</span></label>
+    <textarea class="form-control" name="deskripsi" id="deskripsi" rows="5"></textarea>
+</div>
+
                 <div class="form-group">
                     <label for="foto">Foto <span class="text-danger">*</span></label>
                     <input class="form-control" type="file" name="foto" id="foto">
                 </div>
+                <style>
+.btn-purple {
+    background-color: #9360E2; /* Ganti dengan kode warna ungu yang Anda inginkan */
+    color: #fff; /* Ganti dengan warna teks yang sesuai */
+}
+
+.btn-purple:hover {
+    background-color: #9360E2; /* Ganti dengan warna ungu yang berbeda saat tombol dihover */
+}
+</style>
+
+                <br>
                 <div class="text-center mt-3">
     <button type="submit" class="btn btn-purple mx-2">Tambah</button>
     <a href="/tampil-lomba" class="btn btn-purple mx-2">Batal</a>

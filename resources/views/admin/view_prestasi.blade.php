@@ -5,30 +5,25 @@
         <div class="content-header">
             <div class="container-fluid">
                 <h1>Lihat Data Prestasi</h1>
-                <a href="{{ url('tampil-prestasi') }}" class="btn btn-primary col-sm-2 mt-3"><i
-                        class="fa-solid fa-chevron-left"></i>&ensp;Kembali</a>
+                <a href="{{ url('tampil-prestasi') }}" class="btn btn-primary col-sm-2 mt-3">
+                <i class="fa-solid fa-chevron-left"></i>&ensp;Kembali</a>
                 <div class="row">
                     <form id="quickForm" class="col-sm-7">@csrf
                         <div class="card-body">
                             <div class="form-group">
-                                <input type="text" name="idPrestasi" class="form-control" id="idPrestasi"
-                                    value="{{ $data->id_prestasi }}" disabled>
+                                <input type="text" name="idPrestasi" class="form-control" id="idPrestasi" value="{{ $data->id_prestasi }}" disabled>
                             </div>
                             <div class="form-group">
-                                <input type="text" name="nim" class="form-control" id="nim"
-                                    value="{{ $data->nim }}" disabled>
+                                <input type="text" name="nim" class="form-control" id="nim" value="{{ $data->nim }}" disabled>
                             </div>
                             <div class="form-group">
-                                <input type="text" name="namaMahasiswa" class="form-control" id="namaMahasiswa"
-                                    value="{{ $data->mahasiswa->nama }}" disabled>
+                                <input type="text" name="namaMahasiswa" class="form-control" id="namaMahasiswa" value="{{ $data->mahasiswa->nama }}" disabled>
                             </div>
                             <div class="form-group">
-                                <input type="text" name="namaPrestasi" class="form-control" id="namaPrestasi"
-                                    value="{{ $data->nama_prestasi }}" disabled>
+                                <input type="text" name="namaPrestasi" class="form-control" id="namaPrestasi" value="{{ $data->nama_prestasi }}" disabled>
                             </div>
                             <div class="form-group">
-                                <input type="text" name="tingkatPrestasi" class="form-control" id="tingkatPrestasi"
-                                    value="{{ $data->tingkat_prestasi }}" disabled>
+                                <input type="text" name="tingkatPrestasi" class="form-control" id="tingkatPrestasi" value="{{ $data->tingkat_prestasi }}" disabled>
                             </div>
                             <div class="row mr-0 ml-0">
                                 <div class="form-group col-sm-5">

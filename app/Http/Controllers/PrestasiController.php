@@ -22,6 +22,9 @@ class PrestasiController extends Controller
 
     public function store(Request $request)
     {
+        if ($request->is('create_prestasi')) {
+            $rules['dokumen'] = 'required';
+        }
         $data = new Prestasi();
         $data->id_prestasi = $request->idPrestasi;
         $data->nim = $request->nim;
@@ -46,6 +49,9 @@ class PrestasiController extends Controller
     }
 
     public function update(Request $request, $id){
+        if ($request->is('create_prestasi')) {
+            $rules['dokumen'] = 'required';
+        }
         $data = Prestasi::find($id);
         $data->id_prestasi = $request->idPrestasi;
         $data->nim = $request->nim;

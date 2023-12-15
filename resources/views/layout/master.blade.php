@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="utf-8">
+    <meta name="current-route" content="{{ Route::currentRouteName() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>TItle</title>
 
@@ -117,7 +118,7 @@
                 "responsive": false,
                 "lengthChange": false,
                 "autoWidth": true,
-                "scrollX": true,
+                "scrollX": false,
                 "buttons": [{
                     text: 'Tambah Data &ensp; <i class="fa-solid fa-plus"></i>',
                     action: function(e, dt, node, config) {
@@ -134,6 +135,12 @@
                 "lengthChange": false,
                 "autoWidth": true,
                 "scrollX": true,
+                "buttons": [{
+                    text: 'Tambah Data &ensp; <i class="fa-solid fa-plus"></i>',
+                    action: function(e, dt, node, config) {
+                        window.location.href = '{{ route('create_prestasi') }}';
+                    }
+                }]
             })
         })
     </script>

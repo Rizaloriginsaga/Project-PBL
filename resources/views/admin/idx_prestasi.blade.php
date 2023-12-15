@@ -33,7 +33,7 @@
                     </div>
                 </div>
                 <!--  -->
-                <table id="example1" class="table table-bordered">
+                <table id="example1" class="table table-bordered table-striped">
                     <thead>
                         <tr>
                             <th style="width:1%" class="bg-danger text-white">No.</th>
@@ -73,19 +73,19 @@
                                 <td>
                                     <form action="{{ route('delete_prestasi', $data->id) }}" method="post" class="row">
                                         @csrf
-                                        <div class="col-sm-6 mt-2">
+                                        <div class="col mt-2">
                                             <a href="{{ route('edit_prestasi', $data->id) }}" class = "btn btn-warning"><i
                                                     class="fa-solid fa-pen"></i></a>
                                         </div>
-                                        <div class="col-sm-6 mt-2">
+                                        <div class="col mt-2">
                                             <a href="{{ route('verify_prestasi', $data->id) }}"
                                                 class = "btn btn-warning"><i class="fa-solid fa-file-circle-check"></i></a>
                                         </div>
-                                        <div class="col-sm-6 mt-2">
+                                        <div class="col mt-2">
                                             <a href="{{ route('view_prestasi', $data->id) }}" class = "btn btn-warning"><i
                                                     class="fa-solid fa-list-check"></i></a>
                                         </div>
-                                        <div class="col-sm-6 mt-2">
+                                        <div class="col mt-2">
                                             <button class = "btn btn-warning"><i
                                                     class="fa-solid fa-trash-can "></i></button>
                                         </div>

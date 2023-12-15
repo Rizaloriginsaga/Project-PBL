@@ -12,18 +12,18 @@
                 <table id="example2" class="table table-bordered">
                     <thead>
                         <tr>
-                            <th style="width:1%" class="btn-danger disabled">No.</th>
-                            <th style="width:1%" class="btn-danger disabled">Id Prestasi</th>
-                            <th style="width:1%" class="btn-danger disabled">NIM</th>
-                            <th style="width:1%" class="btn-danger disabled">Nama Mhs</th>
-                            <th style="width:1%" class="btn-danger disabled">Nama Prestasi</th>
-                            <th style="width:1%" class="btn-danger disabled">Dokumen</th>
-                            <th style="width:1%" class="btn-danger disabled">Tingkat Prestasi</th>
-                            <th style="width:1%" class="btn-danger disabled">Tanggal Pengeluaran</th>
-                            <th style="width:1%" class="btn-danger disabled">Tahun Angkatan</th>
-                            <th style="width:1%" class="btn-danger disabled">Jenis Sertifikat</th>
-                            <th style="width:1%" class="btn-danger disabled">Status Verifikasi</th>
-                            <th style="width:5em" class="btn-danger disabled">Aksi</th>
+                            <th style="width:5%" class="bg-danger text-white">No.</th>
+                            <th style="width:5%" class="bg-danger text-white">Id Prestasi</th>
+                            <th style="width:5%" class="bg-danger text-white">NIM</th>
+                            <th style="width:5%" class="bg-danger text-white">Nama Mhs</th>
+                            <th style="width:5%" class="bg-danger text-white">Nama Prestasi</th>
+                            <th style="width:5%" class="bg-danger text-white">Dokumen</th>
+                            <th style="width:5%" class="bg-danger text-white">Tingkat Prestasi</th>
+                            <th style="width:5%" class="bg-danger text-white">Tanggal Pengeluaran</th>
+                            <th style="width:5%" class="bg-danger text-white">Tahun Angkatan</th>
+                            <th style="width:5%" class="bg-danger text-white">Jenis Sertifikat</th>
+                            <th style="width:5%" class="bg-danger text-white">Status Verifikasi</th>
+                            <th style="width:10%" class="bg-danger text-white">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>

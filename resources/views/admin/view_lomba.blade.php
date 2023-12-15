@@ -24,15 +24,15 @@
                     </div>
                     <div class="col-md-6">
                         <label for="tanggal_posting" class="form-label">Tanggal Posting:</label>
-                        <input type="text" id="tanggal_posting" class="form-control" value="{{ $data->tanggal_posting }}" readonly>
+                        <input type="text" id="tanggal_posting" class="form-control" value="{{ \Carbon\Carbon::parse($data->tanggal_posting)->format('d-m-Y') }}" readonly>
                     </div>
                     <div class="col-md-6">
                         <label for="tanggal_berakhir" class="form-label">Tanggal Berakhir:</label>
-                        <input type="text" id="tanggal_berakhir" class="form-control" value="{{ $data->tanggal_berakhir }}" readonly>
+                        <input type="text" id="tanggal_berakhir" class="form-control" value="{{ \Carbon\Carbon::parse($data->tanggal_berakhir)->format('d-m-Y') }}" readonly>
                     </div>
                     <div class="col-md-12">
-                        <label for="deskripsi" class="form-label">Deskripsi:</label>
-                        <textarea id="deskripsi" class="form-control" readonly>{{ $data->deskripsi }}</textarea>
+                        <label for="deskripsi">Deskripsi <span class="text-danger">*</span></label>
+                        <textarea class="form-control" name="deskripsi" id="deskripsi" rows="5">{{$data->deskripsi}}</textarea>
                     </div>
                 </form>
             </div>

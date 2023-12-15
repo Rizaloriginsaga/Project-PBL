@@ -22,7 +22,13 @@
                             <input type="text" name="namaPrestasi" class="form-control" id="namaPrestasi" value="{{$data->nama_prestasi}}">
                         </div>
                         <div class="form-group">
-                            <input type="text" name="tingkatPrestasi" class="form-control" id="tingkatPrestasi" value="{{$data->tingkat_prestasi}}">
+                            <select class="form-control text-muted" style="width: 100%;" id="tingkatPrestasi" name="tingkatPrestasi" type="text"> 
+                                <option <?php echo ($data->tingkat_prestasi === 'Kota') ? 'selected' : ''; ?>>Kota</option>
+                                <option <?php echo ($data->tingkat_prestasi === 'Wilker') ? 'selected' : ''; ?>>Wilker</option>
+                                <option <?php echo ($data->tingkat_prestasi === 'Provinsi') ? 'selected' : ''; ?>>Provinsi</option>
+                                <option <?php echo ($data->tingkat_prestasi === 'Nasional') ? 'selected' : ''; ?>>Nasional</option>
+                                <option <?php echo ($data->tingkat_prestasi === 'Internasional') ? 'selected' : ''; ?>>Internasional</option>
+                            </select>
                         </div>
                         <div class="row mr-0 ml-0">
                             <div class="form-group col-sm-5">
@@ -38,7 +44,10 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <input type="text" name="jenisSertifikat" class="form-control" id="jenisSertifikat" value="{{$data->jenis_sertifikat}}">
+                            <select class="form-control text-muted" style="width: 100%;" id="jenisSertifikat" name="jenisSertifikat" type="text">
+                                <option <?php echo ($data->jenis_sertifikat === 'Akademik') ? 'selected' : ''; ?>>Akademik</option>
+                                <option <?php echo ($data->jenis_sertifikat === 'Non Akademik') ? 'selected' : ''; ?>>Non Akademik</option>
+                            </select>
                         </div>
                         <div class="form-group">
                             <div class="custom-file">
@@ -49,7 +58,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <button type="submit" class="btn btn-primary offset-sm-3 col-sm-2">Tambah</button>
+                    <button type="submit" class="btn btn-primary offset-sm-3 col-sm-2">Update</button>
                     <a href="{{url('tampil-prestasi')}}" class="btn btn-primary offset-sm-2 col-sm-2">Batal</a>
                 </div>
             </form>

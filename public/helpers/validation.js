@@ -1,4 +1,6 @@
 $(function () {
+  var currentRoute = $('meta[name="current-route"]').attr('content');
+
   $('#quickForm').validate({
     rules: {
       idPrestasi: {
@@ -25,9 +27,7 @@ $(function () {
       jenisSertifikat: {
         required: true
       },
-      dokumen: {
-        required: true
-      },
+      dokumen: (currentRoute === 'create_prestasi') ? { required: true } : false,
     },
     messages: {
       idPrestasi: {
