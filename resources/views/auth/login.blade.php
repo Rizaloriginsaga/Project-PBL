@@ -71,7 +71,7 @@
                             </form>
                             <div class="text-center">
                                 <p class="font-weight-light">Belum punya akun? Silahkan <a
-                                        href="{{ route('register') }}">register</a>
+                                        href="{{ route('register_mahasiswa') }}">register</a>
                                     terlebih dahulu</p>
                             </div>
                         </div>

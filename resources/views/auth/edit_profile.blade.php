@@ -6,8 +6,8 @@
                 class="fa-solid fa-angle-left fa-lg mr-2"></i>Kembali</a>
         <div class="row justify-content-between">
             <div class="col-lg-7 col-sm-12">
-                <form class="mx-3" action="{{ route('edit_profile') }}" method="POST" enctype="multipart/form-data">
-                    {{ csrf_field() }}
+                <form class="mx-3" action="{{ route('update_profile') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
                     <div class="form-group py-2">
                         <input class="form-control px-3 py-4 @error('username') is-invalid @enderror" id="username"
                             name="username" type="text" placeholder="username"
@@ -38,6 +38,18 @@
                             <span class="error text-danger">{{ $errors->first('password') }}</span>
                         @endif
                     </div>
+                    @if (Auth::user()->role == 'mahasiswa')
+                        <div class="form-group date py-2">
+                            <input type="text"
+                                class="form-control px-3 py-4 @error('tahun_angkatan') is-invalid @enderror"
+                                name="tahun_angkatan"
+                                value="{{ old('tahun_angkatan', $mahasiswa->tahun_angkatan == 'null' ? '' : $mahasiswa->tahun_angkatan) }}"
+                                placeholder="Tahun Angkatan">
+                            @if ($errors->has('tahun_angkatan'))
+                                <span class="error text-danger">{{ $errors->first('tahun_angkatan') }}</span>
+                            @endif
+                        </div>
+                    @endif
                     <div class="form-group py-2">
                         <div class="custom-file">
                             <input type="file" class="custom-file-input py-4 @error('foto_profile') is-invalid @enderror"

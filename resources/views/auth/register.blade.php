@@ -12,7 +12,7 @@
                             </div>
                             <p class="mx-5 mt-5 text-center">Silahkan isi form register di bawah ini</p>
                             <hr style="height:3px;border:none;color:#606060;background-color:#606060;">
-                            <form class="mx-3" action="{{ url('register') }}" method="POST">
+                            <form class="mx-3" action="{{ route($route) }}" method="POST">
                                 {{ csrf_field() }}
                                 <div class="form-group">
                                     <label class="font-weight-normal mb-1" for="username">Masukkan username berupa NIM

@@ -21,7 +21,7 @@
                 href="#">Prestasi</a>
         </li>
         <li class="nav-item px-3">
-            <a class="nav-link font-weight-bold {{ Request::segment(1) == 'profile' ? 'active' : '' }}"
+            <a class="nav-link font-weight-bold {{ Request::segment(1) == 'edit-profile' ? 'active' : '' }}"
                 href="#">Profil</a>
         </li>
     </ul>
@@ -32,7 +32,7 @@
                 {{ Auth::user()->nama_lengkap == null ? 'User' : Auth::user()->nama_lengkap }}
                 <div class="image">
                     <img src="{{ asset('assets/foto-profile/' . Auth::user()->foto) }}"
-                        class="img-circle border border-white" alt="user_profile">
+                        class="img-circle border border-white" alt="User Image">
                 </div>
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
