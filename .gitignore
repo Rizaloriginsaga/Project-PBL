@@ -17,9 +17,9 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
-/public/template
-public/assets/plugins
-public/assets/dist
-public/template/plugins
-public/template/dist
-public/images
+# /public/template
+# public/assets/plugins
+# public/assets/dist
+# public/template/plugins
+# public/template/dist
+# public/images

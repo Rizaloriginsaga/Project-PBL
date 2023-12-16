@@ -4,20 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Lomba;
-use App\Exports\ExportExcelProduk;
+use App\Exports\ExportExcelLomba;
 use Maatwebsite\Excel\Facades\Excel;
 
 class LombaController extends Controller
 {
     //
     public function index(){
-        $tingkatLomba = request('tingkat_lomba', 'Semua');
         $tanggal = request('tanggal');
         $query = Lomba::query();
-    
-        if ($tingkatLomba !== 'Semua') {
-            $query->where('tingkat_lomba', $tingkatLomba);
-        }
     
         if ($tanggal) {
             $query->whereDate('tanggal_posting', $tanggal);
@@ -27,7 +22,6 @@ class LombaController extends Controller
     
         return view('admin.idx_lomba', [
             'dataLomba' => $dataLomba,
-            'tingkatLomba' => $tingkatLomba,
             'tanggal' => $tanggal,
         ]);
         
@@ -46,10 +40,10 @@ public function create(){
         ];
 
         $this->validate($request, [
-            'id' => 'required|unique:lomba'
+            'id_lomba' => 'required|unique:lomba'
         ], $message);
         $data = new Lomba();
-        $data->id = $request->id;
+        $data->id_lomba = $request->id_lomba;
         $data->nama_lomba = $request->nama_lomba;
         $data->tingkat_lomba = $request->tingkat_lomba;
         $data->tingkat_lomba = $request->tingkat_lomba;

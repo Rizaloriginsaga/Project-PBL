@@ -1,61 +1,52 @@
 @extends('layout.master')
-@section('title', 'Detail Lomba')
-@section('content')
-<h4 style="margin-left: 20px; margin-top: 20px;">Lihat Data Lomba</h4>
-<br>
-<a href="/tampil-lomba" class="btn btn-purple" style="margin-left: 20px;">< Kembali</a>
-<br>
-    <div class="container">
-<br>
-        <div class="row">
-            <div class="col-md-6">
-                <form class="row g-3">
-                    <div class="col-md-12">
-                        <label for="id" class="form-label">ID Lomba:</label>
-                        <input type="text" id="id" class="form-control" value="{{ $data->id }}" readonly>
-                    </div>
-                    <div class="col-md-12">
-                        <label for="nama_lomba" class="form-label">Nama Lomba:</label>
-                        <input type="text" id="nama_lomba" class="form-control" value="{{ $data->nama_lomba }}" readonly>
-                    </div>
-                    <div class="col-md-12">
-                        <label for="tingkat_lomba" class="form-label">Tingkat Lomba:</label>
-                        <input type="text" id="tingkat_lomba" class="form-control" value="{{ $data->tingkat_lomba }}" readonly>
-                    </div>
-                    <div class="col-md-6">
-                        <label for="tanggal_posting" class="form-label">Tanggal Posting:</label>
-                        <input type="text" id="tanggal_posting" class="form-control" value="{{ \Carbon\Carbon::parse($data->tanggal_posting)->format('d-m-Y') }}" readonly>
-                    </div>
-                    <div class="col-md-6">
-                        <label for="tanggal_berakhir" class="form-label">Tanggal Berakhir:</label>
-                        <input type="text" id="tanggal_berakhir" class="form-control" value="{{ \Carbon\Carbon::parse($data->tanggal_berakhir)->format('d-m-Y') }}" readonly>
-                    </div>
-                    <div class="col-md-12">
-                        <label for="deskripsi">Deskripsi <span class="text-danger">*</span></label>
-                        <textarea class="form-control" name="deskripsi" id="deskripsi" rows="5">{{$data->deskripsi}}</textarea>
-                    </div>
-                </form>
-            </div>
-            <div class="col-md-6">
-                <div class="row g-3">
-                    <div class="col-md-12">
-                        <br>
-                        @if ($data->foto)
-                            <img src="{{ asset('images/' . $data->foto) }}" alt="Lomba Image" style="max-width: 100%;">
-                        @else
-                            No Image
-                        @endif
-                    </div>
-                    <style>
-.btn-purple {
-    background-color: #9360E2; /* Ganti dengan kode warna ungu yang Anda inginkan */
-    color: #fff; /* Ganti dengan warna teks yang sesuai */
-}
 
-.btn-purple:hover {
-    background-color: #9360E2; /* Ganti dengan warna ungu yang berbeda saat tombol dihover */
-}
-</style>
+@section('content')
+    <div class="p-3">
+        <div class="content-header">
+            <div class="container-fluid">
+                <h1>Lihat Data Lomba</h1>
+                <a href="{{ url('/tampil-lomba') }}" class="btn btn-purple col-sm-2 mt-3">
+                <i class="fa-solid fa-chevron-left"></i>&ensp;Kembali</a>
+                <div class="row">
+                    <form id="quickForm" class="col-sm-7">@csrf
+                        <div class="card-body">
+                            <div class="form-group">
+                                <input type="text" name="id_lomba" class="form-control" id="id_lomba" value="{{ $data->id_lomba }}" disabled>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="nama_lomba" class="form-control" id="nama_lomba" value="{{ $data->nama_lomba }}" disabled>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="tingkat_lomba" class="form-control" id="tingkat_lomba" value="{{ $data->tingkat_lomba }}" disabled>
+                            </div>
+                            <div class="row mr-0 ml-0">
+                                <div class="form-group col-sm-5">
+                                    <div class="input-group date" id="reservationdate1" data-target-input="nearest">
+                                        <div class="input-group-append" data-target="#reservationdate1"
+                                            data-toggle="datetimepicker">
+                                            <div class="input-group-text"><i class="fa-solid fa-calendar-days"></i></div>
+                                        </div>
+                                        <input type="text" name="tanggal_posting" id="tanggal_posting" value="{{ \Carbon\Carbon::parse($data->tanggal_posting)->format('d-m-Y') }}" class="form-control datetimepicker-input" data-target="#reservationdate1" disabled/>
+                                    </div>
+                                </div>
+                                <div class="form-group col-sm-6 offset-sm-1">
+                                    <div class="input-group date" id="reservationdate2" data-target-input="nearest">
+                                        <div class="input-group-append" data-target="#reservationdate2"
+                                            data-toggle="datetimepicker">
+                                            <div class="input-group-text"><i class="fa-solid fa-calendar-days"></i></div>
+                                        </div>
+                                        <input type="text" name="tanggal_berakhir" id="tanggal_berakhir" value="{{ \Carbon\Carbon::parse($data->tanggal_berakhir)->format('d-m-Y') }}" class="form-control datetimepicker-input" data-target="#reservationdate2" disabled />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" name="deskripsi" id="deskripsi" rows="5" disabled placeholder="{{$data->deskripsi}}"></textarea>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="col-sm-5 pt-3">@csrf
+                        <img src="{{ asset('images/' . $data->foto) }}" class="img-thumbnail" width="auto" />
+                    </div>
                 </div>
             </div>
         </div>

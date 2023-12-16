@@ -5,33 +5,34 @@
         <div class="content-header">
             <div class="container-fluid">
                 <h1>Data Kelola Prestasi</h1>
-                <div class="row mt-3">
-                    <div class="form-group col-sm-3">
-                        <label>Tingkat Prestasi</label>
-                        <select class="form-control" style="width: 100%;" id="tingkatPrestasi">
-                            <option selected="selected">Semua</option>
-                            <option>Kota</option>
-                            <option>Wilker</option>
-                            <option>Provinsi</option>
-                            <option>Nasional</option>
-                            <option>Internasional</option>
-                        </select>
-                    </div>
-                    <div class="form-group col-sm-3">
-                        <label>Tanggal Prestasi</label>
-                        <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                            <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
-                                <div class="input-group-text"><i class="fa-solid fa-calendar-days"></i></div>
+                <form action="{{ route('prestasi') }}" method="get">
+                    <div class="row mt-3">
+                        <div class="form-group col-sm-3">
+                            <label>Tingkat Prestasi</label>
+                            <select class="form-control" style="width: 100%;" id="tingkatPrestasi">
+                                <option selected="selected">Semua</option>
+                                <option>Kabupaten</option>
+                                <option>Provinsi</option>
+                                <option>Nasional</option>
+                                <option>Internasional</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label for="tanggal">Tanggal:</label>
+                                <input type="date" name="tanggal" id="tanggal" class="form-control" value="{{ $tanggal }}">
                             </div>
-                            <input type="text" class="form-control datetimepicker-input" id="datePicker"
-                                data-target="#reservationdate" />
+                        </div>
+                        <div class="form-group col-sm-3 d-flex justify-content-start align-items-end">
+                            <button type="submit" class="btn btn-purple">Filter</button>
+                            <a href="{{ route('prestasi') }}" class="btn btn-red ml-2">Reset Filter</a>
+                        </div>
+                        <div class="form-group col-sm-3 d-flex justify-content-end align-items-end">
+                            <a href="{{ route('excel_prestasi') }}" class="btn btn-danger ">
+                            <i class="fa-solid fa-file-excel"></i>&ensp;Export Excel</a>
                         </div>
                     </div>
-                    <div class="form-group col-sm-2 offset-sm-4 mt-4">
-                        <a href="{{ route('excel_prestasi') }}" class="btn btn-block btn-danger"><i
-                                class="fa-solid fa-file-excel"></i>&ensp;Export Excel</a>
-                    </div>
-                </div>
+                </form>
                 <!--  -->
                 <table id="example1" class="table table-bordered table-striped">
                     <thead>

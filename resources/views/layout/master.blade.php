@@ -46,14 +46,14 @@
             @if (Auth::check() && Auth::user()->role == 'admin')
                 @include('layout.navbar_admin')
                 @include('layout.sidebar')
-                <div class="content-wrapper">
+                <div class="content-wrapper p-2">
                     @yield('content')
                 </div>
                 @include('layout.footer')
             @else
                 @include('layout.navbar_mahasiswa')
                 @yield('content')
-                @include('layout.footer')
+                @include('layout.footer') 
             @endif
         </div>
     @endif
@@ -95,8 +95,23 @@
     <!-- Datepicker -->
     <script>
         $(function() {
-            $('#reservationdate').datetimepicker({
-                format: 'L'
+            $('#reservationdate, #reservationdate1, #reservationdate2').datetimepicker({
+                format: 'YYYY-MM-DD'
+            });
+            $("#filterButton").click(function(){
+                var selectedDate = $("#datePicker").val();
+
+                $.ajax({
+                    url: 'filter.php',
+                    method: 'POST',
+                    data: { selectedDate: selectedDate },
+                    success: function(response){
+                        $("#result").html(response);
+                    },
+                    error: function(xhr, status, error){
+                        console.error(error);
+                    }
+                });
             });
             $("#example1").DataTable({
                 "responsive": false,
@@ -110,7 +125,7 @@
                     }
                 }]
             }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-            $('#example1_wrapper .dataTables_filter input').css({
+            $('#example1_wrapper .dataTables_filter input, #tableLomba_wrapper .dataTables_filter input').css({
                 'width': 'auto',
                 'height': 'auto'
             });
@@ -126,21 +141,11 @@
                     }
                 }]
             }).buttons().container().appendTo('#tableLomba_wrapper .col-md-6:eq(0)');
-            $('#tableLomba_wrapper .dataTables_filter input').css({
-                'width': 'auto',
-                'height': 'auto'
-            });
             $("#example2").DataTable({
                 "responsive": false,
                 "lengthChange": false,
                 "autoWidth": true,
-                "scrollX": true,
-                "buttons": [{
-                    text: 'Tambah Data &ensp; <i class="fa-solid fa-plus"></i>',
-                    action: function(e, dt, node, config) {
-                        window.location.href = '{{ route('create_prestasi') }}';
-                    }
-                }]
+                "scrollX": true
             })
         })
     </script>

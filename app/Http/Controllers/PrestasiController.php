@@ -12,8 +12,19 @@ use Maatwebsite\Excel\Facades\Excel;
 class PrestasiController extends Controller
 {
     public function index(){
-        $data = Prestasi::all();
-        return view('admin.idx_prestasi',['dataPrestasi' => $data]);
+        $query = Prestasi::query();
+        $tanggal = request('tanggal');
+    
+        if ($tanggal) {
+            $query->whereDate('tahun_pengeluaran', $tanggal);
+        }
+    
+        $data = $query->get();
+    
+        return view('admin.idx_prestasi', [
+            'dataPrestasi' => $data,
+            'tanggal' => $tanggal,
+        ]);
     }
 
     public function create(){

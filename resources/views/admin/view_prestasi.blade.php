@@ -5,7 +5,7 @@
         <div class="content-header">
             <div class="container-fluid">
                 <h1>Lihat Data Prestasi</h1>
-                <a href="{{ url('tampil-prestasi') }}" class="btn btn-primary col-sm-2 mt-3">
+                <a href="{{ url('tampil-prestasi') }}" class="btn btn-purple col-sm-2 mt-3">
                 <i class="fa-solid fa-chevron-left"></i>&ensp;Kembali</a>
                 <div class="row">
                     <form id="quickForm" class="col-sm-7">@csrf

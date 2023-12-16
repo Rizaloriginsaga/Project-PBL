@@ -5,7 +5,7 @@
     <div class="content-header">
       <div class="container-fluid">
         <h1>Edit Data Prestasi</h1>
-        <a href="{{url('tampil-prestasi')}}" class="btn btn-primary col-sm-2 mt-3"><i class="fa-solid fa-chevron-left"></i>&ensp;Kembali</a>
+        <a href="{{url('tampil-prestasi')}}" class="btn btn-purple col-sm-2 mt-3"><i class="fa-solid fa-chevron-left"></i>&ensp;Kembali</a>
             <form id="quickForm" action="{{route('update_prestasi',$data->id)}}" method="post">@csrf
                 <div class="col-sm-8 offset-sm-2">
                     <div class="card-body">
@@ -23,8 +23,7 @@
                         </div>
                         <div class="form-group">
                             <select class="form-control text-muted" style="width: 100%;" id="tingkatPrestasi" name="tingkatPrestasi" type="text"> 
-                                <option <?php echo ($data->tingkat_prestasi === 'Kota') ? 'selected' : ''; ?>>Kota</option>
-                                <option <?php echo ($data->tingkat_prestasi === 'Wilker') ? 'selected' : ''; ?>>Wilker</option>
+                                <option <?php echo ($data->tingkat_prestasi === 'Kabupaten') ? 'selected' : ''; ?>>Kabupaten</option>
                                 <option <?php echo ($data->tingkat_prestasi === 'Provinsi') ? 'selected' : ''; ?>>Provinsi</option>
                                 <option <?php echo ($data->tingkat_prestasi === 'Nasional') ? 'selected' : ''; ?>>Nasional</option>
                                 <option <?php echo ($data->tingkat_prestasi === 'Internasional') ? 'selected' : ''; ?>>Internasional</option>
@@ -58,8 +57,8 @@
                     </div>
                 </div>
                 <div class="row">
-                    <button type="submit" class="btn btn-primary offset-sm-3 col-sm-2">Update</button>
-                    <a href="{{url('tampil-prestasi')}}" class="btn btn-primary offset-sm-2 col-sm-2">Batal</a>
+                    <button type="submit" class="btn btn-purple offset-sm-3 col-sm-2">Update</button>
+                    <a href="{{url('tampil-prestasi')}}" class="btn btn-purple offset-sm-2 col-sm-2">Batal</a>
                 </div>
             </form>
         </div>

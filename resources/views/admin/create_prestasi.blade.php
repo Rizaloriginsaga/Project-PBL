@@ -5,7 +5,7 @@
         <div class="content-header">
             <div class="container-fluid">
                 <h1>Tambah Data Prestasi</h1>
-                <a href="{{ url('tampil-prestasi') }}" class="btn btn-primary col-sm-2 mt-3"><i
+                <a href="{{ url('tampil-prestasi') }}" class="btn btn-purple col-sm-2 mt-3"><i
                         class="fa-solid fa-chevron-left"></i>&ensp;Kembali</a>
                 <form id="quickForm" action="{{ route('store_prestasi') }}" method="POST" enctype="multipart/form-data">
                     @csrf
@@ -28,8 +28,7 @@
                             </div>
                             <div class="form-group">
                                 <select class="form-control text-muted" style="width: 100%;" id="tingkatPrestasi" name="tingkatPrestasi" type="text">
-                                    <option>Kota</option>
-                                    <option>Wilker</option>
+                                    <option>Kabupaten</option>
                                     <option>Provinsi</option>
                                     <option>Nasional</option>
                                     <option>Internasional</option>
@@ -68,8 +67,8 @@
                         </div>
                     </div>
                     <div class="row">
-                        <button type="submit" class="btn btn-primary offset-sm-3 col-sm-2">Tambah</button>
-                        <a href="{{ url('tampil-prestasi') }}" class="btn btn-primary offset-sm-2 col-sm-2">Batal</a>
+                        <button type="submit" class="btn btn-purple offset-sm-3 col-sm-2">Tambah</button>
+                        <a href="{{ url('tampil-prestasi') }}" class="btn btn-purple offset-sm-2 col-sm-2">Batal</a>
                     </div>
                 </form>
             </div>

@@ -5,7 +5,7 @@
         <div class="content-header">
             <div class="container-fluid">
                 <h1>Verifikasi Data Prestasi</h1>
-                <a href="{{ url('tampil-prestasi') }}" class="btn btn-primary col-sm-2 mt-3"><i
+                <a href="{{ url('tampil-prestasi') }}" class="btn btn-purple col-sm-2 mt-3"><i
                         class="fa-solid fa-chevron-left"></i>&ensp;Kembali</a>
                 <!--  -->
 

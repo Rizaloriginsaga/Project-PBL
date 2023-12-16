@@ -14,6 +14,7 @@ return new class extends Migration
         //
         Schema::create('lomba', function(Blueprint $table){
             $table->id();
+            $table->string('id_lomba');
             $table->string('nama_lomba');
             $table->string('tingkat_lomba');
             $table->date('tanggal_posting');
