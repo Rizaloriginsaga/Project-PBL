@@ -14,7 +14,7 @@
         </li>
         <li class="nav-item px-3">
             <a class="nav-link font-weight-bold {{ Request::segment(1) == 'lomba' ? 'active' : '' }}"
-                href="#">Lomba</a>
+                href="{{ route('mahasiswa.lomba.index') }}">Lomba</a>
         </li>
         <li class="nav-item px-3">
             <a class="nav-link font-weight-bold {{ Request::segment(1) == 'prestasi' ? 'active' : '' }}"

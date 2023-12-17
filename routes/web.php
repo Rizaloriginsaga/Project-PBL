@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PrestasiController;
 use App\Http\Controllers\LombaController;
+use App\Http\Controllers\MahasiswaLombaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -59,5 +60,10 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('exportExcelLomba', [LombaController::class, 'exportExcelLomba'])->name('excel_lomba');
     });
     Route::group(['middleware' => ['login:mahasiswa']], function () {
+
+        // lomba
+        Route::get('lomba', [MahasiswaLombaController::class, 'index'])->name('mahasiswa.lomba.index');
+        Route::get('lomba/{id}', [MahasiswaLombaController::class, 'show'])->name('mahasiswa.lomba.show');
+
     });
 });

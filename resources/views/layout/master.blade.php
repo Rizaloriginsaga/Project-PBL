@@ -36,6 +36,9 @@
     <link rel="stylesheet" href="{{ asset('assets/plugins/summernote/summernote-bs4.min.css') }}">
     <!-- Customs -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    
+
+    @stack('styles')
 </head>
 
 <body>
