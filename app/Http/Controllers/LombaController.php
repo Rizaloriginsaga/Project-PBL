@@ -27,21 +27,11 @@ class LombaController extends Controller
         
     }
 
-public function create(){
+    public function create(){
         return view('admin.create_lomba');
     }
 
     public function store(Request $request){
-
-        $message= [
-            'required' => ':attribute tidak boleh kosong',
-            'unique' => ':attribute sudah digunakan',
-            'numeric' => ':attribute harus berupa angka',
-        ];
-
-        $this->validate($request, [
-            'id_lomba' => 'required|unique:lomba'
-        ], $message);
         $data = new Lomba();
         $data->id_lomba = $request->id_lomba;
         $data->nama_lomba = $request->nama_lomba;
@@ -57,7 +47,8 @@ public function create(){
             $data->foto = $fileName;
         }
         $data->save();
-        return redirect('/tampil-lomba')->with('success','Data berhasil disimpan!');
+        $request->session()->flash('success', 'Data berhasil ditambahkan');
+        return redirect('/tampil-lomba');
     }
 
     public function edit($id){
@@ -73,23 +64,27 @@ public function create(){
         $data->tanggal_berakhir = $request->tanggal_berakhir;
         $data->deskripsi = $request->deskripsi;
         if ($request->hasFile('foto')) {
-            // Jika ada berkas yang diunggah, proses berkas baru
             $file = $request->file('foto');
             $fileName = time() . '.' . $file->getClientOriginalExtension();
             $file->move(public_path('images'), $fileName);
             $data->foto = $fileName;
         } else {
-            // Jika tidak ada berkas yang diunggah, gunakan foto yang sudah ada
             $data->foto = $data->foto;
         }
         $data->update();
-        return redirect('/tampil-lomba')->with('success','Data berhasil diubah!');
+        $request->session()->flash('success', 'Data berhasil diubah');
+        return redirect('/tampil-lomba');
     }
 
-    public function destroy($id){
+    public function destroy(Request $request, $id){
         $data = Lomba::find($id);
+        if(!$data) {
+            $request->session()->flash('success', 'Data tidak ditemukan.');
+            return redirect('/tampil-lomba');
+        }
         $data->delete();
-        return redirect('/tampil-lomba')->with('success','Data berhasil dihapus!');
+        $request->session()->flash('success', 'Data berhasil dihapus');
+        return redirect('/tampil-lomba');
     }
 
     public function read($id){

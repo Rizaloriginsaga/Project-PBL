@@ -33,6 +33,16 @@
                         </div>
                     </div>
                 </form>
+                <hr>
+                @if(session('success'))
+                    <div class="row justify-content-center mt-3 position-absolute-container">
+                        <div class="col-md-4 position-absolute">
+                            <div class="alert alert-success bg-purple" id="successMessage">
+                                {{ session('success') }}
+                            </div>
+                        </div>
+                    </div>
+                @endif
                 <!--  -->
                 <table id="tableLomba" class="table table-bordered table-striped">
                     <thead>

@@ -4,7 +4,7 @@
 <div class="  p-3">
     <div class="content-header">
       <div class="container-fluid">
-        <h1>Edit Data Prestasi</h1>
+        <h1>Edit Data Lomba</h1>
         <a href="{{url('/tampil-lomba')}}" class="btn btn-purple col-sm-2 mt-3"><i class="fa-solid fa-chevron-left"></i>&ensp;Kembali</a>
             <form id="quickForm" action="{{route('lomba.update', $data->id)}}" method="post">@csrf
                 <div class="col-sm-8 offset-sm-2">

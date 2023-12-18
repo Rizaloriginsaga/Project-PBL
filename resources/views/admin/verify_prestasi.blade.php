@@ -8,7 +8,15 @@
                 <a href="{{ url('tampil-prestasi') }}" class="btn btn-purple col-sm-2 mt-3"><i
                         class="fa-solid fa-chevron-left"></i>&ensp;Kembali</a>
                 <!--  -->
-
+                @if(session('success'))
+                <div class="row justify-content-center mt-3 position-absolute-container">
+                    <div class="col-md-4 position-absolute">
+                        <div class="alert alert-success bg-purple" id="successMessage">
+                            {{ session('success') }}
+                        </div>
+                    </div>
+                </div>
+                @endif
                 <table id="example2" class="table table-bordered">
                     <thead>
                         <tr>

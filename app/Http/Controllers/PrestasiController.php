@@ -51,6 +51,7 @@ class PrestasiController extends Controller
         $data->tahun_angkatan = $request->tahunAngkatan;
         $data->jenis_sertifikat = $request->jenisSertifikat;
         $data->save();
+        $request->session()->flash('success', 'Data berhasil Ditambahkan');
         return redirect('/tampil-prestasi');
     }
 
@@ -80,6 +81,7 @@ class PrestasiController extends Controller
         $data->tahun_angkatan = $request->tahunAngkatan;
         $data->jenis_sertifikat = $request->jenisSertifikat;
         $data->update();
+        $request->session()->flash('success', 'Data berhasil diubah');
         return redirect('/tampil-prestasi');
     }
 
@@ -88,20 +90,22 @@ class PrestasiController extends Controller
         return view('admin.verify_prestasi',['dataPrestasi' => $data]);
     }
 
-    public function verifikasi($id)
+    public function verifikasi(Request $request, $id)
     {
         $data = Prestasi::findOrFail($id);
         $data->status_verifikasi = true;
         $data->save();
-        return redirect()->back()->with('success', 'Data berhasil diverifikasi.');
+        $request->session()->flash('success', 'Data berhasil diverifikasi');
+        return redirect()->back();
     }
     
-    public function unverifikasi($id)
+    public function unverifikasi(Request $request, $id)
     {
         $data = Prestasi::findOrFail($id);
         $data->status_verifikasi = false;
         $data->save();
-        return redirect()->back()->with('success', 'Data berhasil diunverifikasi.');
+        $request->session()->flash('success', 'Data berhasil diunverifikasi');
+        return redirect()->back();
     }
 
     public function view($id){
@@ -109,8 +113,13 @@ class PrestasiController extends Controller
         return view('admin\view_prestasi', compact('data'));
     }
 
-    public function destroy($id_prestasi){
+    public function destroy(Request $request, $id_prestasi){
         $data = Prestasi::find($id_prestasi);
+        if(!$data) {
+            $request->session()->flash('success', 'Data tidak ditemukan.');
+            return redirect('/tampil-prestasi');
+        }
+        $request->session()->flash('success', 'Data berhasil dihapus');
         $data->delete();
         return redirect('/tampil-prestasi');
     }

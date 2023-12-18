@@ -170,6 +170,14 @@
             });
         });
     </script>
+
+    <script>
+        $(document).ready(function() {
+            setTimeout(function() {
+                $('#successMessage').fadeOut('slow');
+            }, 2000);
+        });
+    </script>
 </body>
 
 </html>
