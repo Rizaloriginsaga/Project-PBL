@@ -20,15 +20,17 @@ use App\Http\Controllers\LombaController;
 
 Route::get('login', [AuthController::class, 'login_view'])->name('login');
 Route::post('login', [AuthController::class, 'login'])->name('login');
-Route::get('register', [AuthController::class, 'register_view'])->name('register');
-Route::post('register', [AuthController::class, 'register'])->name('register');
+Route::get('register/admin', [AuthController::class, 'register_view'])->name('register_admin');
+Route::get('register/mahasiswa', [AuthController::class, 'register_view'])->name('register_mahasiswa');
+Route::post('register/admin', [AuthController::class, 'register_admin'])->name('register_admin');
+Route::post('register/mahasiswa', [AuthController::class, 'register_mahasiswa'])->name('register_mahasiswa');
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
 
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::get('/edit-profile', [AuthController::class, 'edit_profile_view'])->name('edit_profile');
-    Route::post('/edit-profile', [AuthController::class, 'edit_profile'])->name('edit_profile');
+    Route::post('edit-profile', [AuthController::class, 'edit_profile'])->name('update_profile');
     Route::group(['middleware' => ['login:admin']], function () {
 
         // prestasi
@@ -57,5 +59,5 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('exportExcelLomba', [LombaController::class, 'exportExcelLomba'])->name('excel_lomba');
     });
     Route::group(['middleware' => ['login:mahasiswa']], function () {
-    }); 
+    });
 });
