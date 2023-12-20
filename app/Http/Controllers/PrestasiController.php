@@ -128,12 +128,13 @@ class PrestasiController extends Controller
         return Excel::download(new exportExcelPrestasi, 'DataPrestasi.xlsx');
     }
 
-    public function checkNimExists(Request $request)
-    {
-        $nim = $request->nim;
-        $exists = Mahasiswa::where('nim', $nim)->exists();
-        return response()->json(['exists' => $exists]);
-    }
+    // public function checkNimExists(Request $request)
+    // {
+    //     $nim = $request->nim;
+    //     $exists = Mahasiswa::where('nim', $nim)->exists();
+    //     return response()->json(['exists' => $exists]);
+    // }
+    
     public function autofillData(Request $request)
     {
         $nim = $request->input('nim');

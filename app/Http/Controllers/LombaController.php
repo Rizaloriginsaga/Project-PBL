@@ -108,6 +108,26 @@ class LombaController extends Controller
         return view('home.index', compact('jumlahLomba'));
     }
 
+    // mahasiswa
+    public function lombaMahasiswa(Request $request){
+        $search = $request->get('search');
+        $lomba = new Lomba();
+
+        if(!empty($search)){
+            $lombaAll = $lomba->where('nama_lomba', 'like', '%'. $search . '%')->get();
+        }else{
+            $lombaAll = $lomba->all();
+        }
+        return view('mahasiswa.lomba', compact('lombaAll'));
+    }
+
+    public function show(Request $request, $id){
+        if(empty($id)){ return redirect()->back(); }
+        $lomba = new Lomba();
+        $lombaDetail = $lomba->where('id', '=', $id)->first();
+        return view('mahasiswa.lombaDetail', compact('lombaDetail'));
+    }
+
 
 }
 

@@ -59,5 +59,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('exportExcelLomba', [LombaController::class, 'exportExcelLomba'])->name('excel_lomba');
     });
     Route::group(['middleware' => ['login:mahasiswa']], function () {
+        Route::get('lomba',[LombaController::class, 'lombaMahasiswa'])->name('mahasiswa.lomba.index');
+        Route::get('lomba/{id}',[LombaController::class, 'show'])->name('mahasiswa.lomba.show');
     });
 });

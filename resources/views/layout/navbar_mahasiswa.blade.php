@@ -10,11 +10,11 @@
     </ul>
     <ul class="navbar-nav ml-auto">
         <li class="nav-item px-3">
-            <a class="nav-link font-weight-bold {{ Request::segment(1) == '' ? 'active' : '' }}" href="#">Home</a>
+            <a class="nav-link font-weight-bold {{ Request::segment(1) == '' ? 'active' : '' }}" href="{{ route('home') }}">Home</a>
         </li>
         <li class="nav-item px-3">
             <a class="nav-link font-weight-bold {{ Request::segment(1) == 'lomba' ? 'active' : '' }}"
-                href="#">Lomba</a>
+                href="{{ route('mahasiswa.lomba.index') }}">Lomba</a>
         </li>
         <li class="nav-item px-3">
             <a class="nav-link font-weight-bold {{ Request::segment(1) == 'prestasi' ? 'active' : '' }}"

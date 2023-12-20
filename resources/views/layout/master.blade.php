@@ -36,6 +36,8 @@
     <link rel="stylesheet" href="{{ asset('assets/plugins/summernote/summernote-bs4.min.css') }}">
     <!-- Customs -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <!-- lomba-styles -->
+    @stack('styles')
 </head>
 
 <body>
@@ -146,7 +148,19 @@
                 "lengthChange": false,
                 "autoWidth": true,
                 "scrollX": true
-            })
+            });
+            $("#example3").DataTable({
+                "responsive": false,
+                "lengthChange": false,
+                "autoWidth": true,
+                "scrollX": false,
+                "buttons": [{
+                    text: 'Prestasi Saya',
+                    action: function(e, dt, node, config) {
+                        window.location.href = '{{ route('lomba.create') }}';
+                    }
+                }]
+            }).buttons().container().appendTo('#example3_wrapper .col-md-6:eq(0)');
         })
     </script>
     <!-- autofill -->
@@ -170,7 +184,7 @@
             });
         });
     </script>
-
+    <!-- flashmessage-duration -->
     <script>
         $(document).ready(function() {
             setTimeout(function() {

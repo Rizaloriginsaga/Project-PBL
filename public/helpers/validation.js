@@ -3,6 +3,7 @@ $(function () {
 
   $('#quickForm').validate({
     rules: {
+      // prestasi
       idPrestasi: {
         required: true
       },
@@ -28,6 +29,29 @@ $(function () {
         required: true
       },
       dokumen: (currentRoute === 'create_prestasi') ? { required: true } : false,
+      // lomba
+      id_lomba: {
+        required: true
+      },
+      nama_lomba: {
+        required: true
+      },
+      tingkat_lomba: {
+        required: true
+      },
+      tanggal_posting: {
+        required: true
+      },
+      tanggal_berakhir: {
+        required: true
+      },
+      deskripsi: {
+        required: true,
+        maxlength:255
+      },
+      foto: {
+        required: true
+      },
     },
     messages: {
       idPrestasi: {
@@ -56,6 +80,28 @@ $(function () {
       },
       dokumen: {
         required: "Masukkan Dokumen",
+      },
+      id_lomba: {
+        required: "Masukkan ID Lomba",
+      },
+      nama_lomba: {
+        required: "Masukkan Nama Lomba",
+      },
+      tingkat_lomba: {
+        required: "Masukkan Tingkatan Lomba",
+      },
+      tanggal_posting: {
+        required: "Masukkan Tanggal Posting",
+      },
+      tanggal_berakhir: {
+        required: "Masukkan Tanggal Berakhir",
+      },
+      deskripsi: {
+        required: "Masukkan Deskripsi",
+        maxlength: "Deskripsi tidak boleh lebih dari 255 karakter",
+      },
+      foto: {
+        required: "Masukkan Foto"
       },
     },
     errorElement: 'span',

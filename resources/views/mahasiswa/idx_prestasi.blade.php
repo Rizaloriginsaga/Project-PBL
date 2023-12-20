@@ -1,53 +1,64 @@
 @extends('layout.master')
 
 @section('content')
-    <div class="  p-3">
+    <div class="p-3">
         <div class="content-header">
             <div class="container-fluid">
                 <h1>Data Kelola Prestasi</h1>
-                <div class="row mt-3">
-                    <div class="form-group col-sm-3">
-                        <label>Tingkat Prestasi</label>
-                        <select class="form-control" style="width: 100%;" id="tingkatPrestasi">
-                            <option selected="selected">Semua</option>
-                            <option>Kota</option>
-                            <option>Wilker</option>
-                            <option>Provinsi</option>
-                            <option>Nasional</option>
-                            <option>Internasional</option>
-                        </select>
-                    </div>
-                    <div class="form-group col-sm-3">
-                        <label>Tanggal Prestasi</label>
-                        <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                            <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
-                                <div class="input-group-text"><i class="fa-solid fa-calendar-days"></i></div>
+                <form action="{{ route('prestasi') }}" method="get">
+                    <div class="row mt-3">
+                        <div class="form-group col-sm-3">
+                            <label>Tingkat Prestasi</label>
+                            <select class="form-control" style="width: 100%;" id="tingkatPrestasi">
+                                <option selected="selected">Semua</option>
+                                <option>Kabupaten</option>
+                                <option>Provinsi</option>
+                                <option>Nasional</option>
+                                <option>Internasional</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label for="tanggal">Tanggal:</label>
+                                <input type="date" name="tanggal" id="tanggal" class="form-control" value="{{ $tanggal }}">
                             </div>
-                            <input type="text" class="form-control datetimepicker-input" id="datePicker"
-                                data-target="#reservationdate" />
+                        </div>
+                        <div class="form-group col-sm-3 d-flex justify-content-start align-items-end">
+                            <button type="submit" class="btn btn-purple">Filter</button>
+                            <a href="{{ route('prestasi') }}" class="btn btn-red ml-2">Reset Filter</a>
+                        </div>
+                        <div class="form-group col-sm-3 d-flex justify-content-end align-items-end">
+                            <a href="{{ route('excel_prestasi') }}" class="btn btn-danger ">
+                            <i class="fa-solid fa-file-excel"></i>&ensp;Export Excel</a>
                         </div>
                     </div>
-                    <div class="form-group col-sm-2 offset-sm-4 mt-4">
-                        <a href="{{ route('excel') }}" class="btn btn-block btn-danger"><i
-                                class="fa-solid fa-file-excel"></i>&ensp;Export Excel</a>
+                </form>
+                <hr>
+                @if(session('success'))
+                    <div class="row justify-content-center mt-3 position-absolute-container">
+                        <div class="col-md-4 position-absolute">
+                            <div class="alert alert-success bg-purple" id="successMessage">
+                                {{ session('success') }}
+                            </div>
+                        </div>
                     </div>
-                </div>
+                @endif
                 <!--  -->
-                <table id="example1" class="table table-bordered">
+                <table id="example3" class="table table-bordered table-striped">
                     <thead>
                         <tr>
-                            <th style="width:1%" class="btn-danger disabled">No.</th>
-                            <th style="width:1%" class="btn-danger disabled">Id Prestasi</th>
-                            <th style="width:1%" class="btn-danger disabled">NIM</th>
-                            <th style="width:1%" class="btn-danger disabled">Nama Mhs</th>
-                            <th style="width:1%" class="btn-danger disabled">Nama Prestasi</th>
-                            <th style="width:1%" class="btn-danger disabled">Dokumen</th>
-                            <th style="width:1%" class="btn-danger disabled">Tingkat Prestasi</th>
-                            <th style="width:1%" class="btn-danger disabled">Tanggal Pengeluaran</th>
-                            <th style="width:1%" class="btn-danger disabled">Tahun Angkatan</th>
-                            <th style="width:1%" class="btn-danger disabled">Jenis Sertifikat</th>
-                            <th style="width:1%" class="btn-danger disabled">Status Verifikasi</th>
-                            <th style="width:5em" class="btn-danger disabled">Aksi</th>
+                            <th style="width:1%" class="bg-danger text-white">No.</th>
+                            <th style="width:5%" class="bg-danger text-white">Id Prestasi</th>
+                            <th style="width:5%" class="bg-danger text-white">NIM</th>
+                            <th style="width:5%" class="bg-danger text-white">Nama Mhs</th>
+                            <th style="width:5%" class="bg-danger text-white">Nama Prestasi</th>
+                            <th style="width:5%" class="bg-danger text-white">Dokumen</th>
+                            <th style="width:5%" class="bg-danger text-white">Tingkat Prestasi</th>
+                            <th style="width:5%" class="bg-danger text-white">Tanggal Pengeluaran</th>
+                            <th style="width:5%" class="bg-danger text-white">Tahun Angkatan</th>
+                            <th style="width:5%" class="bg-danger text-white">Jenis Sertifikat</th>
+                            <th style="width:5%" class="bg-danger text-white">Status Verifikasi</th>
+                            <th style="width:10%" class="bg-danger text-white">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -73,19 +84,19 @@
                                 <td>
                                     <form action="{{ route('delete_prestasi', $data->id) }}" method="post" class="row">
                                         @csrf
-                                        <div class="col-sm-6 mt-2">
+                                        <div class="col mt-2">
                                             <a href="{{ route('edit_prestasi', $data->id) }}" class = "btn btn-warning"><i
                                                     class="fa-solid fa-pen"></i></a>
                                         </div>
-                                        <div class="col-sm-6 mt-2">
+                                        <div class="col mt-2">
                                             <a href="{{ route('verify_prestasi', $data->id) }}"
                                                 class = "btn btn-warning"><i class="fa-solid fa-file-circle-check"></i></a>
                                         </div>
-                                        <div class="col-sm-6 mt-2">
+                                        <div class="col mt-2">
                                             <a href="{{ route('view_prestasi', $data->id) }}" class = "btn btn-warning"><i
                                                     class="fa-solid fa-list-check"></i></a>
                                         </div>
-                                        <div class="col-sm-6 mt-2">
+                                        <div class="col mt-2">
                                             <button class = "btn btn-warning"><i
                                                     class="fa-solid fa-trash-can "></i></button>
                                         </div>
@@ -97,6 +108,5 @@
                 </table>
             </div>
         </div>
-    </div>
     </div>
 @endsection
