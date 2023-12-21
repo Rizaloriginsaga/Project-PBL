@@ -2,7 +2,7 @@
 @section('content')
     <div class="container-fluid pt-3 pl-4">
         <h3 class="font-weight-bold">Edit Profil</h3>
-        <a href="{{ URL::previous() }}" class="btn px-3 bg-purple mb-5"><i
+        <a href="{{ route('home') }}" class="btn px-3 bg-purple mb-5"><i
                 class="fa-solid fa-angle-left fa-lg mr-2"></i>Kembali</a>
         <div class="row justify-content-between">
             <div class="col-lg-7 col-sm-12">
